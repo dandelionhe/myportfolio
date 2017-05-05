@@ -3,12 +3,8 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-// Variables
-$font-family:'Roboto','Helvetica Neue',Arial,sans-serif;
-$margin:1em;
-$padding:1em;
-
+@import "variables";
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display+SC:700|Roboto');
 
 html,
 body {
@@ -17,21 +13,21 @@ body {
 }
 
 body {
-    font-family: $font-family;
+    font-family: $heading-copy;
 }
 
 hr {
     max-width: 50px;
-    border-color: #f05f40;
+    border-color: $secondary-background;
     border-width: 3px;
 }
 
 hr.light {
-    border-color: #fff;
+    border-color: $white;
 }
 
 a {
-    color: #f05f40;
+    color: $secondary-background;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -39,7 +35,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #eb3812;
+    color: $third-background;
 }
 
 h1,
@@ -48,17 +44,18 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-family: $body-copy;
 }
 
 p {
+    font-family: $body-copy;
     margin-bottom: 20px;
     font-size: 16px;
     line-height: 1.5;
 }
 
 .bg-primary {
-    background-color: #f05f40;
+    background-color: $secondary-background;
 }
 
 .bg-dark {
@@ -67,7 +64,7 @@ p {
 }
 
 .text-faded {
-    color: rgba(255,255,255,.7);
+    color: $white;
 }
 
 section {
@@ -83,9 +80,9 @@ aside {
 }
 
 .navbar-default {
-    border-color: rgba(34,34,34,.05);
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-    background-color: #fff;
+    border-color: $secondary-background;
+    font-family: $heading-copy;
+    background-color: $light-grey;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -93,14 +90,15 @@ aside {
 
 .navbar-default .navbar-header .navbar-brand {
     text-transform: uppercase;
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-family: $heading-copy;
     font-weight: 700;
-    color: #f05f40;
+    font-size: ($font-size*3);
+    color: $secondary-background;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
-    color: #eb3812;
+    color: $third-background;
 }
 
 .navbar-default .nav > li>a,
@@ -113,12 +111,12 @@ aside {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #f05f40;
+    color: $secondary-background;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #f05f40!important;
+    color: $secondary-background!important;
     background-color: transparent;
 }
 
@@ -129,12 +127,12 @@ aside {
 
 @media(min-width:768px) {
     .navbar-default {
-        border-color: rgba(255,255,255,.3);
+        border-color: $secondary-background;
         background-color: transparent;
     }
 
     .navbar-default .navbar-header .navbar-brand {
-        color: rgba(255,255,255,.7);
+        color: $white;
     }
 
     .navbar-default .navbar-header .navbar-brand:hover,
@@ -144,27 +142,27 @@ aside {
 
     .navbar-default .nav > li>a,
     .navbar-default .nav>li>a:focus {
-        color: rgba(255,255,255,.7);
+        color: $secondary-background;
     }
 
     .navbar-default .nav > li>a:hover,
     .navbar-default .nav>li>a:focus:hover {
-        color: #fff;
+        color: $third-background;
     }
 
     .navbar-default.affix {
-        border-color: rgba(34,34,34,.05);
-        background-color: #fff;
+        border-color: $white;
+        background-color: $light-grey;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand {
-        font-size: 14px;
-        color: #f05f40;
+        font-size: ($font-size*2);
+        color: $secondary-background;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {
-        color: #eb3812;
+        color: $third-background;
     }
 
     .navbar-default.affix .nav > li>a,
@@ -174,17 +172,27 @@ aside {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #f05f40;
+        color: $secondary-background;
     }
 }
+.video {
+ position: absolute;;
+ z-index: -1;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ opacity: .7;
+}
+
+// Header
 
 header {
     position: relative;
     width: 100%;
     min-height: auto;
     text-align: center;
-    color: #fff;
-    background-image: asset-data-url("creative/header.jpg");
+    color: ($secondary-background + #333);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -195,7 +203,7 @@ header {
 header .header-content {
     position: relative;
     width: 100%;
-    padding: 100px 15px;
+    padding: $padding;
     text-align: center;
 }
 
@@ -211,10 +219,11 @@ header .header-content .header-content-inner hr {
 }
 
 header .header-content .header-content-inner p {
+
     margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
-    color: rgba(255,255,255,.7);
+    color: ($secondary-background + #333);
 }
 
 @media(min-width:768px) {
@@ -329,7 +338,7 @@ header .header-content .header-content-inner p {
 }
 
 .text-primary {
-    color: #f05f40;
+    color: $secondary-background;
 }
 
 .no-gutter > [class*=col-] {
@@ -391,9 +400,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    border-color: #f05f40;
+    border-color: $secondary-background;
     color: #fff;
-    background-color: #f05f40;
+    background-color: $secondary-background;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -434,12 +443,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: #f05f40;
-    background-color: #f05f40;
+    border-color: $secondary-background;
+    background-color: $secondary-background;
 }
 
 .btn-primary .badge {
-    color: #f05f40;
+    color: $secondary-background;
     background-color: #fff;
 }
 
